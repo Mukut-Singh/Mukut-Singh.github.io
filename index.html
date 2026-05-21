@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mukut Singh // Cyber Portfolio</title>
+    <meta name="description" content="Portfolio of Mukut Singh, Electronics and Electrical Engineering undergraduate at IIT Guwahati. Algorithmic engineer and full-stack software developer.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="cyber-theme-dark">
+    <!-- Interactive Background Canvas -->
+    <canvas id="canvas-network"></canvas>
+
+    <!-- Scanline & Cyber Grid Overlay -->
+    <div class="cyber-grid-overlay"></div>
+    <div class="cyber-scanline"></div>
+
+    <!-- Navigation Header -->
+    <header class="cyber-header">
+        <div class="cyber-nav-container">
+            <a href="#hero" class="cyber-logo">
+                <span class="cyber-logo-accent">MS</span><span>//</span><span class="cyber-logo-text">SYS_2028</span>
+            </a>
+            
+            <nav class="cyber-nav">
+                <a href="#about" class="cyber-nav-link"><span>01.</span> ABOUT</a>
+                <a href="#skills" class="cyber-nav-link"><span>02.</span> SKILLS</a>
+                <a href="#projects" class="cyber-nav-link"><span>03.</span> TOP_PROJECTS</a>
+                <a href="#achievements" class="cyber-nav-link"><span>04.</span> CP_STATUS</a>
+                <a href="#contact" class="cyber-nav-link"><span>05.</span> COMMS</a>
+            </nav>
+
+            <div class="cyber-nav-actions">
+                <div class="cyber-status-badge">
+                    <span class="pulse-dot"></span>
+                    <span class="status-text">SYS ONLINE</span>
+                </div>
+                <button id="theme-toggle" class="cyber-theme-btn" aria-label="Toggle visual mode">
+                    <i data-lucide="sun" class="sun-icon"></i>
+                    <i data-lucide="moon" class="moon-icon"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                <i data-lucide="menu" class="menu-icon"></i>
+                <i data-lucide="x" class="close-icon"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay">
+        <nav class="mobile-nav-links">
+            <a href="#about" class="mobile-nav-link"><span>01.</span> ABOUT</a>
+            <a href="#skills" class="mobile-nav-link"><span>02.</span> SKILLS</a>
+            <a href="#projects" class="mobile-nav-link"><span>03.</span> TOP_PROJECTS</a>
+            <a href="#achievements" class="mobile-nav-link"><span>04.</span> CP_STATUS</a>
+            <a href="#contact" class="mobile-nav-link"><span>05.</span> COMMS</a>
+        </nav>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <main class="cyber-main">
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <div class="cyber-terminal-panel hero-panel">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">mukutsingh.sh -- bash -- 80x24</span>
+                        <span class="terminal-code">LOC: IITG_NODE_27.02</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line"><span class="prompt">guest@mukutsingh.io:~$</span> <span class="command">init --profile</span></div>
+                        <div class="terminal-line output-line system-msg">Initializing digital environment...</div>
+                        <div class="terminal-line output-line system-msg">Loading developer nodes & CP algorithmic units... [OK]</div>
+                        <div class="terminal-line text-glow mt-4">
+                            <span class="cyber-pretitle">ELECTRICAL & ELECTRONICS UNDERGRADUATE // CLASS OF 2028</span>
+                        </div>
+                        <h1 class="hero-title glitch-text" data-text="MUKUT SINGH">MUKUT SINGH</h1>
+                        <p class="hero-subtitle">
+                            Bridging the gap between <span class="highlight">low-level hardware constraints</span> and <span class="highlight">high-level software architectures</span>. Specializing in optimized algorithmic problem-solving & full-stack development.
+                        </p>
+                        <div class="hero-cta-group">
+                            <a href="#projects" class="cyber-btn primary-glow">
+                                <span class="cyber-btn-inner">
+                                    <i data-lucide="terminal"></i>
+                                    <span>RUN_TOP_PROJECTS</span>
+                                </span>
+                            </a>
+                            <a href="#contact" class="cyber-btn secondary-glow">
+                                <span class="cyber-btn-inner">
+                                    <i data-lucide="mail"></i>
+                                    <span>ESTABLISH_COMMS</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="terminal-footer">
+                        <div class="footer-stat"><span>CPU: </span><span class="stat-val" id="cpu-load">0.04%</span></div>
+                        <div class="footer-stat"><span>ALGORITHMS: </span><span class="stat-val">OPTIMIZED</span></div>
+                        <div class="footer-stat"><span>PORT: </span><span class="stat-val">443 // SECURE</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="visual-cube-container">
+                    <div class="cyber-cube">
+                        <div class="cube-face front">IITG</div>
+                        <div class="cube-face back">2028</div>
+                        <div class="cube-face right">EEE</div>
+                        <div class="cube-face left">C++</div>
+                        <div class="cube-face top">DSA</div>
+                        <div class="cube-face bottom">JS</div>
+                    </div>
+                    <div class="cube-orbit"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About & Education Section -->
+        <section id="about" class="cyber-section reveal-on-scroll">
+            <div class="section-header">
+                <h2 class="section-title"><span class="title-num">01.</span> ACCESS_BIOGRAPHY</h2>
+                <div class="title-line"></div>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-text-panel">
+                    <div class="cyber-hud-card">
+                        <div class="card-corner top-left"></div>
+                        <div class="card-corner top-right"></div>
+                        <div class="card-corner bottom-left"></div>
+                        <div class="card-corner bottom-right"></div>
+                        
+                        <h3>SYSTEM_OVERVIEW</h3>
+                        <div class="bio-flex-container">
+                            <div class="bio-avatar-wrapper">
+                                <img src="assets/cyber_avatar.png" alt="Mukut Singh" class="bio-avatar-img">
+                                <div class="bio-avatar-overlay"></div>
+                            </div>
+                            <div class="bio-text-content">
+                                <p>
+                                    I am an <strong>Electronics and Electrical Engineering</strong> undergraduate at the <strong>Indian Institute of Technology, Guwahati</strong> (IITG). My passion lies in constructing highly-optimized algorithmic architectures and robust web software.
+                                </p>
+                                <p>
+                                    Having developed analytical and system-level modeling skills, I explore the intersections between hardware mechanics and software. By leveraging a strict mathematical foundation and time/space complexity modeling, I aim to design software solutions that run with peak efficiency.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="quick-bio-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">NODE:</span>
+                                <span class="spec-value">IIT Guwahati</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">ROLL_NO:</span>
+                                <span class="spec-value">240102239</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">COURSE:</span>
+                                <span class="spec-value">B.Tech in EEE</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">GRADUATION:</span>
+                                <span class="spec-value">May 2028</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">SECURE_TEL:</span>
+                                <span class="spec-value">+91 73782 34117</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">PRIMARY_COMMS:</span>
+                                <span class="spec-value" style="font-size: 0.8rem;">s.mukut@iitg.ac.in</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">SEC_COMMS:</span>
+                                <span class="spec-value" style="font-size: 0.85rem;">Vijay2e3w@gmail.com</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">LOC:</span>
+                                <span class="spec-value">Guwahati, Assam</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-education-panel">
+                    <div class="cyber-hud-card border-purple">
+                        <div class="card-corner top-left"></div>
+                        <div class="card-corner top-right"></div>
+                        <div class="card-corner bottom-left"></div>
+                        <div class="card-corner bottom-right"></div>
+                        
+                        <h3>EDUCATION_RECORD</h3>
+                        
+                        <div class="timeline-wrapper">
+                            <!-- B.Tech Card -->
+                            <div class="timeline-card">
+                                <div class="timeline-badge"><i data-lucide="graduation-cap"></i></div>
+                                <div class="timeline-card-header">
+                                    <h4>Bachelor of Technology (B.Tech)</h4>
+                                    <span class="timeline-date">2024 - Present</span>
+                                </div>
+                                <div class="timeline-institution">Indian Institute of Technology, Guwahati</div>
+                                <div class="timeline-field">Electronics and Electrical Engineering</div>
+                                <div class="timeline-details">
+                                    <h5>Key Coursework:</h5>
+                                    <div class="course-chips">
+                                        <span>Data Structures & Algorithms</span>
+                                        <span>Object-Oriented Programming</span>
+                                        <span>Control Systems</span>
+                                        <span>Signals & Systems</span>
+                                        <span>Digital Systems</span>
+                                        <span>Analog Circuits</span>
+                                        <span>Linear Algebra</span>
+                                        <span>Basic Calculus</span>
+                                        <span>Real Analysis</span>
+                                        <span>Complex Analysis</span>
+                                        <span>Probability & Random Processes</span>
+                                        <span>Introduction to Computing</span>
+                                        <span>Computing Lab</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Senior Secondary Card -->
+                            <div class="timeline-card mt-6">
+                                <div class="timeline-badge"><i data-lucide="award"></i></div>
+                                <div class="timeline-card-header">
+                                    <h4>Senior Secondary Education (Class XII)</h4>
+                                    <span class="timeline-date">2024</span>
+                                </div>
+                                <div class="timeline-institution">CBSE Board</div>
+                                <div class="timeline-field">Science & Mathematics Stream</div>
+                                <div class="timeline-details">
+                                    <p class="text-muted" style="font-size: 0.85rem; line-height: 1.5;">
+                                        Completed Senior Secondary board studies with an analytical focus on Physics, Chemistry, and Mathematics, establishing foundations for system architectures.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Secondary Card -->
+                            <div class="timeline-card mt-6">
+                                <div class="timeline-badge"><i data-lucide="book-open"></i></div>
+                                <div class="timeline-card-header">
+                                    <h4>Secondary Education (Class X)</h4>
+                                    <span class="timeline-date">2022</span>
+                                </div>
+                                <div class="timeline-institution">CBSE Board</div>
+                                <div class="timeline-field">General Academics</div>
+                                <div class="timeline-details">
+                                    <p class="text-muted" style="font-size: 0.85rem; line-height: 1.5;">
+                                        Completed secondary education curriculum, showing strong performance in Science and Mathematics.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="cyber-section reveal-on-scroll">
+            <div class="section-header">
+                <h2 class="section-title"><span class="title-num">02.</span> TECH_MATRIX</h2>
+                <div class="title-line"></div>
+            </div>
+
+            <div class="skills-dashboard">
+                <!-- Languages Card -->
+                <div class="cyber-hud-card hover-glow">
+                    <div class="card-header-icon"><i data-lucide="code-2" class="cyan-icon"></i></div>
+                    <h3>LANGUAGES</h3>
+                    <div class="skills-progress-list">
+                        <div class="progress-bar-group">
+                            <div class="bar-info"><span>C++ (Algorithmic / CP)</span><span class="bar-val">95%</span></div>
+                            <div class="bar-outer"><div class="bar-inner bar-cyan" style="width: 95%"></div></div>
+                        </div>
+                        <div class="progress-bar-group">
+                            <div class="bar-info"><span>Python (Scripting & Systems)</span><span class="bar-val">80%</span></div>
+                            <div class="bar-outer"><div class="bar-inner bar-cyan" style="width: 80%"></div></div>
+                        </div>
+                        <div class="progress-bar-group">
+                            <div class="bar-info"><span>JavaScript (ES6+)</span><span class="bar-val">85%</span></div>
+                            <div class="bar-outer"><div class="bar-inner bar-cyan" style="width: 85%"></div></div>
+                        </div>
+                        <div class="progress-bar-group">
+                            <div class="bar-info"><span>HTML/CSS</span><span class="bar-val">90%</span></div>
+                            <div class="bar-outer"><div class="bar-inner bar-cyan" style="width: 90%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frameworks & Tools -->
+                <div class="cyber-hud-card hover-glow border-purple">
+                    <div class="card-header-icon"><i data-lucide="cpu" class="purple-icon"></i></div>
+                    <h3>FRAMEWORKS & TOOLS</h3>
+                    <div class="skills-grid-icons">
+                        <div class="tech-chip-cyber">
+                            <i data-lucide="atom"></i>
+                            <span>React</span>
+                        </div>
+                        <div class="tech-chip-cyber">
+                            <i data-lucide="zap"></i>
+                            <span>Vite</span>
+                        </div>
+                        <div class="tech-chip-cyber">
+                            <i data-lucide="server"></i>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="tech-chip-cyber">
+                            <i data-lucide="binary"></i>
+                            <span>NumPy</span>
+                        </div>
+                        <div class="tech-chip-cyber">
+                            <i data-lucide="database"></i>
+                            <span>Pandas</span>
+                        </div>
+                        <div class="tech-chip-cyber">
+                            <i data-lucide="brain"></i>
+                            <span>PyTorch</span>
+                        </div>
+                        <div class="tech-chip-cyber">
+                            <i data-lucide="calculator"></i>
+                            <span>MATLAB</span>
+                        </div>
+                        <div class="tech-chip-cyber">
+                            <i data-lucide="git-branch"></i>
+                            <span>Git</span>
+                        </div>
+                        <div class="tech-chip-cyber">
+                            <i data-lucide="globe"></i>
+                            <span>GitHub Pages</span>
+                        </div>
+                        <div class="tech-chip-cyber">
+                            <i data-lucide="terminal"></i>
+                            <span>Linux CLI</span>
+                        </div>
+                        <div class="tech-chip-cyber">
+                            <i data-lucide="book-open"></i>
+                            <span>Obsidian</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Core Concepts -->
+                <div class="cyber-hud-card hover-glow border-pink">
+                    <div class="card-header-icon"><i data-lucide="binary" class="pink-icon"></i></div>
+                    <h3>CORE_CONCEPTS</h3>
+                    <div class="skills-concepts-list">
+                        <div class="concept-item">
+                            <div class="concept-indicator"><i data-lucide="chevron-right"></i></div>
+                            <div class="concept-text">
+                                <strong>Data Structures & Algorithms:</strong> Custom vectors, trees, graphs, custom hash mappings, dynamic programming.
+                            </div>
+                        </div>
+                        <div class="concept-item">
+                            <div class="concept-indicator"><i data-lucide="chevron-right"></i></div>
+                            <div class="concept-text">
+                                <strong>Competitive Programming:</strong> Highly optimized problem solving under stringent time limits (Codeforces).
+                            </div>
+                        </div>
+                        <div class="concept-item">
+                            <div class="concept-indicator"><i data-lucide="chevron-right"></i></div>
+                            <div class="concept-text">
+                                <strong>Object-Oriented Programming:</strong> Robust architectural design patterns, inheritance, polymorphism, and modular encapsulation.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="cyber-section reveal-on-scroll">
+            <div class="section-header">
+                <h2 class="section-title"><span class="title-num">03.</span> TOP_PROJECTS</h2>
+                <div class="title-line"></div>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <article class="project-card-cyber">
+                    <div class="project-card-inner">
+                        <div class="project-header">
+                            <div class="project-folder"><i data-lucide="folder-git-2"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/Mukut-Singh/CVMpp/tree/master/CVMpp" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="GitHub Repository">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="project-content">
+                            <div class="project-tech-category">SYSTEMS // C++ // VIRTUAL MACHINE</div>
+                            <h3 class="project-title">CVM++</h3>
+                            <p class="project-desc">
+                                Built a custom stack-based virtual machine in C++ with a complete pipeline including lexical analysis, recursive descent parsing, AST generation, and bytecode execution. Designed a modular architecture supporting variables, arithmetic expressions, and print operations with a custom instruction set (opcodes). Implemented an efficient stack-based execution engine to interpret and execute bytecode instructions.
+                            </p>
+                        </div>
+                        
+                        <div class="project-tags">
+                            <span>C++</span>
+                            <span>Virtual Machine</span>
+                            <span>Parser</span>
+                            <span>AST</span>
+                            <span>Bytecode</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card-cyber border-pink">
+                    <div class="project-card-inner">
+                        <div class="project-header">
+                            <div class="project-folder"><i data-lucide="users"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/Mukut-Singh/HackathonSquad" target="_blank" rel="noopener noreferrer" class="proj-link-icon" aria-label="GitHub Repository">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="project-content">
+                            <div class="project-tech-category">SOFTWARE // REACT // VITE</div>
+                            <h3 class="project-title">HackathonSquad</h3>
+                            <p class="project-desc">
+                                A collaborative matchmaking hub designed for hackathon team formation and project synergy. Features responsive user skill profiles, role preferences, and automated pairing algorithms to optimize team dynamics and streamline project collaboration.
+                            </p>
+                        </div>
+                        
+                        <div class="project-tags">
+                            <span>React</span>
+                            <span>Vite</span>
+                            <span>NodeJS</span>
+                            <span>Collaboration</span>
+                            <span>Algorithms</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Achievements & CP Status -->
+        <section id="achievements" class="cyber-section reveal-on-scroll">
+            <div class="section-header">
+                <h2 class="section-title"><span class="title-num">04.</span> PROTOCOL_ACHIEVEMENTS</h2>
+                <div class="title-line"></div>
+            </div>
+
+            <div class="achievements-hud">
+                <!-- Competitive Programming Stats -->
+                <div class="cyber-hud-card cp-dossier">
+                    <div class="card-corner top-left"></div>
+                    <div class="card-corner top-right"></div>
+                    <div class="card-corner bottom-left"></div>
+                    <div class="card-corner bottom-right"></div>
+
+                    <div class="hud-dossier-grid">
+                        <div class="hud-dossier-main">
+                            <div class="badge-hud"><i data-lucide="terminal"></i></div>
+                            <h3 class="mt-4">CP_DOSSIER // CODEFORCES</h3>
+                            <p class="dossier-intro">
+                                Engaging in competitive algorithmic contests, designing optimal mathematical frameworks, and implementing quick complexity structures (in C++) under strict time limits.
+                            </p>
+                            <div class="dossier-buttons mt-6">
+                                <a href="https://codeforces.com/profile/mysterio_coder" target="_blank" rel="noopener noreferrer" class="cyber-btn primary-glow">
+                                    <span class="cyber-btn-inner">
+                                        <i data-lucide="external-link"></i>
+                                        <span>VIEW_CF_PROFILE</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="hud-dossier-stats">
+                            <div class="cyber-stat-box">
+                                <div class="stat-header">HANDLE</div>
+                                <div class="stat-number cyan-glow">mysterio_coder</div>
+                            </div>
+                            <div class="cyber-stat-box">
+                                <div class="stat-header">SOLVED PROBLEMS</div>
+                                <div class="stat-number cyan-glow">200+ Problems</div>
+                            </div>
+                            <div class="cyber-stat-box">
+                                <div class="stat-header">COMPILING LANGUAGE</div>
+                                <div class="stat-number">C++20 (G++ v12)</div>
+                            </div>
+                            <div class="cyber-stat-box">
+                                <div class="stat-header">ALGORITHMIC FOCUS</div>
+                                <div class="stat-number">Trees, DP, Math</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hockey Medal -->
+                <div class="cyber-hud-card sport-dossier border-pink">
+                    <div class="card-corner top-left"></div>
+                    <div class="card-corner top-right"></div>
+                    <div class="card-corner bottom-left"></div>
+                    <div class="card-corner bottom-right"></div>
+
+                    <div class="hud-dossier-grid">
+                        <div class="hud-dossier-main">
+                            <div class="badge-hud pink-glow"><i data-lucide="award"></i></div>
+                            <h3 class="mt-4">ATHLETIC_NODE // HOCKEY</h3>
+                            <p class="dossier-intro">
+                                Active sports participation representing Kameng Hostel in competitive varsity sports events. Team synergy, quick structural setups, and high-performance physical play.
+                            </p>
+                        </div>
+                        
+                        <div class="hud-dossier-stats">
+                            <div class="cyber-stat-box">
+                                <div class="stat-header">CHAMPIONSHIP</div>
+                                <div class="stat-number pink-glow">SPARDHA 2026</div>
+                            </div>
+                            <div class="cyber-stat-box">
+                                <div class="stat-header">RESULT</div>
+                                <div class="stat-number">BRONZE MEDALIST</div>
+                            </div>
+                            <div class="cyber-stat-box">
+                                <div class="stat-header">TEAM REPRESENTED</div>
+                                <div class="stat-number">Kameng Hostel, IITG</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SAATHI Wellbeing Club -->
+                <div class="cyber-hud-card social-dossier border-purple">
+                    <div class="card-corner top-left"></div>
+                    <div class="card-corner top-right"></div>
+                    <div class="card-corner bottom-left"></div>
+                    <div class="card-corner bottom-right"></div>
+
+                    <div class="hud-dossier-grid">
+                        <div class="hud-dossier-main">
+                            <div class="badge-hud purple-glow"><i data-lucide="heart"></i></div>
+                            <h3 class="mt-4">COMMUNITY_NODE // SAATHI</h3>
+                            <p class="dossier-intro">
+                                Active member of SAATHI, the student mental health and wellbeing club of IIT Guwahati. Organizing peer-support drives, interactive wellbeing campaigns, and providing mental health resources to the campus community.
+                            </p>
+                        </div>
+                        
+                        <div class="hud-dossier-stats">
+                            <div class="cyber-stat-box">
+                                <div class="stat-header">ROLE</div>
+                                <div class="stat-number purple-glow">Active Member</div>
+                            </div>
+                            <div class="cyber-stat-box">
+                                <div class="stat-header">ORGANIZATION</div>
+                                <div class="stat-number">SAATHI Wellbeing Club</div>
+                            </div>
+                            <div class="cyber-stat-box">
+                                <div class="stat-header">TENURE</div>
+                                <div class="stat-number">2025 - Present</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="cyber-section reveal-on-scroll">
+            <div class="section-header">
+                <h2 class="section-title"><span class="title-num">05.</span> ESTABLISH_COMMS</h2>
+                <div class="title-line"></div>
+            </div>
+
+            <div class="contact-terminal">
+                <div class="cyber-terminal-panel">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">comms_channel.sh -- secure -- mail</span>
+                        <span class="terminal-code">ENCRYPT: TLS_AES_256_GCM</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-welcome-text">
+                            <p class="text-cyan">// System initialized. You can send a encrypted message to the host Node.</p>
+                            <p class="text-muted">// Fill out parameters to trigger the mailer daemon.</p>
+                        </div>
+                        
+                        <form id="contact-form" class="cyber-form mt-6" action="mailto:s.mukut@iitg.ac.in" method="post" enctype="text/plain">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="sender-name" class="form-label">SENDER_NAME:</label>
+                                    <div class="input-wrapper">
+                                        <span class="input-prompt">&gt;</span>
+                                        <input type="text" id="sender-name" name="name" class="cyber-input" placeholder="e.g. AGENT ORION" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sender-email" class="form-label">RETURN_ROUTING_EMAIL:</label>
+                                    <div class="input-wrapper">
+                                        <span class="input-prompt">&gt;</span>
+                                        <input type="email" id="sender-email" name="email" class="cyber-input" placeholder="e.g. agent.orion@agency.com" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group mt-4">
+                                <label for="message-body" class="form-label">TRANSMISSION_PAYLOAD:</label>
+                                <div class="input-wrapper text-area-wrapper">
+                                    <span class="input-prompt align-top">&gt;</span>
+                                    <textarea id="message-body" name="message" class="cyber-input cyber-textarea" placeholder="Type transmission details..." required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-actions mt-6">
+                                <button type="submit" class="cyber-btn primary-glow">
+                                    <span class="cyber-btn-inner">
+                                        <i data-lucide="send"></i>
+                                        <span>TRANSMIT_PACKET</span>
+                                    </span>
+                                </button>
+                                <div class="terminal-status-log" id="form-status-msg">
+                                    <span class="text-muted">Awaiting input...</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="cyber-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <span class="text-code">MUKUT SINGH © 2026 // ALL SYSTEM DATA PROTECTED</span>
+            </div>
+            
+            <div class="footer-socials">
+                <a href="https://github.com/Mukut-Singh" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub Channel">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                </a>
+                <a href="https://linkedin.com/in/mukut-singh" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn Channel">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="https://codeforces.com/profile/mysterio_coder" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Codeforces Node">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="codeforces-icon"><rect x="3" y="11" width="4" height="10" rx="1"/><rect x="10" y="3" width="4" height="18" rx="1"/><rect x="17" y="7" width="4" height="14" rx="1"/></svg>
+                </a>
+                <a href="mailto:s.mukut@iitg.ac.in" class="social-icon-btn" aria-label="Secure Mail Channel">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </a>
+            </div>
+            
+            <div class="footer-right">
+                <span class="text-code text-cyan font-glow">NODE: EEE_IITG</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App JavaScript Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
