@@ -81,9 +81,9 @@
     --color-purple-glow: rgba(189, 0, 255, 0.3);
     --color-pink-glow: rgba(255, 0, 85, 0.3);
     
-    --border-color: rgba(0, 240, 255, 0.15);
-    --border-purple: rgba(189, 0, 255, 0.15);
-    --border-pink: rgba(255, 0, 85, 0.15);
+    --border-color: rgba(0, 240, 255, 0.35);
+    --border-purple: rgba(189, 0, 255, 0.35);
+    --border-pink: rgba(255, 0, 85, 0.35);
     
     --shadow-neon-cyan: 0 0 10px var(--color-cyan-glow), 0 0 2px var(--color-cyan);
     --shadow-neon-purple: 0 0 10px var(--color-purple-glow), 0 0 2px var(--color-purple);
@@ -496,7 +496,9 @@ h1, h2, h3, h4, h5, h6 {
     margin: 10px 0 20px 0;
     line-height: 1.1;
     letter-spacing: 2px;
-    color: var(--text-header);
+    color: #ffffff;
+    -webkit-text-stroke: 1px var(--color-cyan);
+    text-shadow: 0 0 10px var(--color-cyan-glow), 0 0 2px var(--color-cyan);
     position: relative;
 }
 

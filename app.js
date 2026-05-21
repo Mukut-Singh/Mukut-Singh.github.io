@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mouse = {
         x: null,
         y: null,
-        radius: 180
+        radius: 200
     };
 
     function initCanvasColors() {
@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function drawLines() {
         const isLight = bodyElement.classList.contains('cyber-theme-light');
         const lineMaxOpacity = isLight ? 0.20 : 0.40;
-        const mouseMaxOpacity = isLight ? 0.35 : 0.70;
+        const mouseMaxOpacity = isLight ? 0.35 : 0.95;
 
         for (let i = 0; i < particles.length; i++) {
             for (let j = i + 1; j < particles.length; j++) {
@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (dist < mouse.radius) {
                     let opacity = (1 - (dist / mouse.radius)) * mouseMaxOpacity;
                     ctx.strokeStyle = `rgba(${colors.mouseLineBase}, ${opacity.toFixed(2)})`;
-                    ctx.lineWidth = 1.2;
+                    ctx.lineWidth = isLight ? 1.2 : 2.0;
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(mouse.x, mouse.y);
