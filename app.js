@@ -111,8 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let connectionDistance = 120;
     let colors = {
         particle: 'rgba(0, 240, 255, 0.5)',
-        line: 'rgba(0, 240, 255, 0.08)',
-        mouseLine: 'rgba(255, 0, 85, 0.18)'
+        lineBase: '0, 240, 255',
+        mouseLineBase: '255, 0, 85'
     };
 
     const mouse = {
@@ -125,12 +125,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const isLight = bodyElement.classList.contains('cyber-theme-light');
         if (isLight) {
             colors.particle = 'rgba(0, 156, 184, 0.4)';
-            colors.line = 'rgba(0, 156, 184, 0.06)';
-            colors.mouseLine = 'rgba(204, 0, 68, 0.12)';
+            colors.lineBase = '0, 156, 184';
+            colors.mouseLineBase = '204, 0, 68';
         } else {
             colors.particle = 'rgba(0, 240, 255, 0.4)';
-            colors.line = 'rgba(0, 240, 255, 0.06)';
-            colors.mouseLine = 'rgba(255, 0, 85, 0.15)';
+            colors.lineBase = '0, 240, 255';
+            colors.mouseLineBase = '255, 0, 85';
         }
     }
 
@@ -202,6 +202,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function drawLines() {
+        const isLight = bodyElement.classList.contains('cyber-theme-light');
+        const lineMaxOpacity = isLight ? 0.20 : 0.40;
+        const mouseMaxOpacity = isLight ? 0.35 : 0.70;
+
         for (let i = 0; i < particles.length; i++) {
             for (let j = i + 1; j < particles.length; j++) {
                 let dx = particles[i].x - particles[j].x;
@@ -210,8 +214,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (dist < connectionDistance) {
                     // Line opacity depends on proximity
-                    let opacity = (1 - (dist / connectionDistance)) * 0.15;
-                    ctx.strokeStyle = colors.line.replace('0.06', opacity.toFixed(2)).replace('0.05', opacity.toFixed(2));
+                    let opacity = (1 - (dist / connectionDistance)) * lineMaxOpacity;
+                    ctx.strokeStyle = `rgba(${colors.lineBase}, ${opacity.toFixed(2)})`;
                     ctx.lineWidth = 0.8;
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
@@ -226,9 +230,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 let dy = particles[i].y - mouse.y;
                 let dist = Math.sqrt(dx * dx + dy * dy);
                 if (dist < mouse.radius) {
-                    let opacity = (1 - (dist / mouse.radius)) * 0.3;
-                    ctx.strokeStyle = colors.mouseLine.replace('0.15', opacity.toFixed(2)).replace('0.12', opacity.toFixed(2));
-                    ctx.lineWidth = 1;
+                    let opacity = (1 - (dist / mouse.radius)) * mouseMaxOpacity;
+                    ctx.strokeStyle = `rgba(${colors.mouseLineBase}, ${opacity.toFixed(2)})`;
+                    ctx.lineWidth = 1.2;
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(mouse.x, mouse.y);
