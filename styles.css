@@ -496,6 +496,50 @@ h1, h2, h3, h4, h5, h6 {
     display: none; /* Can add subtle glitches on hover */
 }
 
+/* Hero Socials Bar styling */
+.hero-socials-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 25px;
+    margin-top: 5px;
+}
+
+.hero-social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: rgba(11, 12, 22, 0.5);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-muted);
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-social-link svg {
+    color: var(--color-cyan);
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.hero-social-link:hover {
+    color: var(--text-header);
+    border-color: var(--color-cyan);
+    background: rgba(0, 240, 255, 0.05);
+    box-shadow: var(--shadow-neon-cyan);
+    transform: translateY(-2px);
+}
+
+.hero-social-link:hover svg {
+    transform: scale(1.1);
+    color: var(--color-cyan);
+}
+
 /* Buttons */
 .hero-cta-group {
     display: flex;
@@ -860,6 +904,26 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.9rem;
     color: var(--text-header);
     font-weight: 700;
+}
+
+.spec-value a {
+    color: var(--text-header);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.spec-value a:hover {
+    color: var(--color-cyan);
+    text-shadow: var(--shadow-neon-cyan);
+}
+
+.spec-value a svg {
+    color: var(--color-cyan);
+    transition: transform 0.2s ease;
+}
+
+.spec-value a:hover svg {
+    transform: scale(1.15);
 }
 
 /* Education Timeline styling */
@@ -1440,9 +1504,11 @@ h1, h2, h3, h4, h5, h6 {
     transition: var(--transition-fast);
 }
 
-.social-icon-btn i {
+.social-icon-btn i,
+.social-icon-btn svg {
     width: 16px;
     height: 16px;
+    display: block;
 }
 
 .social-icon-btn:hover {
